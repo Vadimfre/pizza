@@ -3,6 +3,8 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Title } from "./title";
 import { FilterCheckbox } from "./FilterCheckbox";
+import { RangeSlider } from "./range-slider";
+import { CheckboxFiltersGroup } from "./checkbox-filters-group";
 
 interface Props {
   className?: string;
@@ -30,6 +32,90 @@ export const Filters: React.FC<Props> = ({ className }) => {
           />
           <Input type="number" min={100} max={2000} placeholder="30000" />
         </div>
+
+        <RangeSlider min={0} max={2000} step={100} />
+
+        <CheckboxFiltersGroup
+        className="mt-5"
+        title="Формат"
+        limit={6}
+        defaultItems={[
+          {
+            text: 'Сырный соус',
+            value: '1',
+          },
+          {
+            text: 'Моццарелла',
+            value: '2',
+          },
+          {
+            text: 'Чеснок',
+            value: '3',
+          },
+          {
+            text: 'Солённые огурчики',
+            value: '4',
+          },
+          {
+            text: 'Красный лук',
+            value: '5',
+          },
+          {
+            text: 'Томаты',
+            value: '6',
+          },
+        ]}
+        items={[
+          {
+            text: 'Сырный соус',
+            value: '1',
+          },
+          {
+            text: 'Моццарелла',
+            value: '2',
+          },
+          {
+            text: 'Чеснок',
+            value: '3',
+          },
+          {
+            text: 'Солённые огурчики',
+            value: '4',
+          },
+          {
+            text: 'Красный лук',
+            value: '5',
+          },
+          {
+            text: 'Томаты',
+            value: '6',
+          },
+          {
+            text: 'Сырный соус',
+            value: '1',
+          },
+          {
+            text: 'Моццарелла',
+            value: '2',
+          },
+          {
+            text: 'Чеснок',
+            value: '3',
+          },
+          {
+            text: 'Солённые огурчики',
+            value: '4',
+          },
+          {
+            text: 'Красный лук',
+            value: '5',
+          },
+          {
+            text: 'Томаты',
+            value: '6',
+          },
+        ]}
+      />
       </div>
     </div>
   );
