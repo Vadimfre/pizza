@@ -36,86 +36,86 @@ export const Filters: React.FC<Props> = ({ className }) => {
         <RangeSlider min={0} max={2000} step={100} />
 
         <CheckboxFiltersGroup
-        className="mt-5"
-        title="Формат"
-        limit={6}
-        defaultItems={[
-          {
-            text: 'Сырный соус',
-            value: '1',
-          },
-          {
-            text: 'Моццарелла',
-            value: '2',
-          },
-          {
-            text: 'Чеснок',
-            value: '3',
-          },
-          {
-            text: 'Солённые огурчики',
-            value: '4',
-          },
-          {
-            text: 'Красный лук',
-            value: '5',
-          },
-          {
-            text: 'Томаты',
-            value: '6',
-          },
-        ]}
-        items={[
-          {
-            text: 'Сырный соус',
-            value: '1',
-          },
-          {
-            text: 'Моццарелла',
-            value: '2',
-          },
-          {
-            text: 'Чеснок',
-            value: '3',
-          },
-          {
-            text: 'Солённые огурчики',
-            value: '4',
-          },
-          {
-            text: 'Красный лук',
-            value: '5',
-          },
-          {
-            text: 'Томаты',
-            value: '6',
-          },
-          {
-            text: 'Сырный соус',
-            value: '1',
-          },
-          {
-            text: 'Моццарелла',
-            value: '2',
-          },
-          {
-            text: 'Чеснок',
-            value: '3',
-          },
-          {
-            text: 'Солённые огурчики',
-            value: '4',
-          },
-          {
-            text: 'Красный лук',
-            value: '5',
-          },
-          {
-            text: 'Томаты',
-            value: '6',
-          },
-        ]}
-      />
+          className="mt-5"
+          title="Формат"
+          limit={6}
+          defaultItems={[
+            {
+              text: "Сырный соус",
+              value: "1",
+            },
+            {
+              text: "Моццарелла",
+              value: "2",
+            },
+            {
+              text: "Чеснок",
+              value: "3",
+            },
+            {
+              text: "Солённые огурчики",
+              value: "4",
+            },
+            {
+              text: "Красный лук",
+              value: "5",
+            },
+            {
+              text: "Томаты",
+              value: "6",
+            },
+          ]}
+          items={[
+            {
+              text: "Сырный соус",
+              value: "1",
+            },
+            {
+              text: "Моццарелла",
+              value: "2",
+            },
+            {
+              text: "Чеснок",
+              value: "3",
+            },
+            {
+              text: "Солённые огурчики",
+              value: "4",
+            },
+            {
+              text: "Красный лук",
+              value: "5",
+            },
+            {
+              text: "Томаты",
+              value: "6",
+            },
+            {
+              text: "Сырный соус",
+              value: "8",
+            },
+            {
+              text: "Моццарелла",
+              value: "9",
+            },
+            {
+              text: "Чеснок",
+              value: "11",
+            },
+            {
+              text: "Солённые огурчики",
+              value: "12",
+            },
+            {
+              text: "Красный лук",
+              value: "13",
+            },
+            {
+              text: "Томаты",
+              value: "14",
+            },
+          ]}
+        />
       </div>
     </div>
   );
