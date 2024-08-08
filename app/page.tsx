@@ -31,7 +31,7 @@ export default function Home() {
                   },
                   {
                     id: 2,
-                    name: "Чизбургер пицца",
+                    name: "Пеперони",
                     imageUrl:
                       "https://media.dodostatic.net/image/r:292x292/11EE7D5EDE8F665C89A9328216FE2126.avif",
                     items: [{ price: 550 }],

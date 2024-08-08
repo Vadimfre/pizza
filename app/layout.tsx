@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/shared/header";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const nunito = Nunito({
   subsets: ["cyrillic"],
