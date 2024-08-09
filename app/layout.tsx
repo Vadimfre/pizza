@@ -1,18 +1,11 @@
-import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/shared/header";
-import { QueryClient, QueryClientProvider } from "react-query";
 
 const nunito = Nunito({
   subsets: ["cyrillic"],
   variable: "--font-nunito",
   weight: ["400", "500", "600", "700", "800", "900"],
 });
-
-export const metadata: Metadata = {
-  title: "Sema Pizza",
-};
 
 export default function RootLayout({
   children,
@@ -21,12 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
-        <main className="min-h-screen">
-          <Header />
-          {children}
-        </main>
-      </body>
+      <head>
+        <link rel="stylesheet" href="/logo.png" />
+      </head>
+      <link rel="manifest" href="/manifest.json" />
+      <body className={nunito.className}>{children}</body>
     </html>
   );
 }

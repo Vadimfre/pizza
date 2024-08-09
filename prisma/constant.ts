@@ -136,40 +136,160 @@ export const products = [
     categoryId: 2,
   },
   {
+    name: "Омлет с ветчиной и грибам",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/omlet-with-veggies-1.jpg",
+    categoryId: 2,
+  },
+  {
+    name: "Омлет с ветчной и грибами",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/omlet-with-veggies-1.jpg",
+    categoryId: 2,
+  },
+  {
     name: "Омлет с грибами",
     imageUrl:
       "https://cdn.dodostatic.net/static/Img/Banners/2x/omlet-with-veggies-2.jpg",
     categoryId: 2,
   },
   {
+    name: "кофе латте",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/coffee-latte-1.jpg",
+    categoryId: 5,
+  },
+  {
+    name: "коффе лате",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/coffee-latte-1.jpg",
+    categoryId: 5,
+  },
+  {
     name: "коффе латте",
     imageUrl:
       "https://cdn.dodostatic.net/static/Img/Banners/2x/coffee-latte-1.jpg",
-    categoryId: 1,
+    categoryId: 5,
   },
   {
-    name: "коффе эспрессо",
+    name: "коф латте",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/coffee-latte-1.jpg",
+    categoryId: 5,
+  },
+  {
+    name: "коффе латте",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/coffee-latte-1.jpg",
+    categoryId: 5,
+  },
+  {
+    name: "коффе эспресо",
     imageUrl:
       "https://cdn.dodostatic.net/static/Img/Banners/2x/coffee-espresso-1.jpg",
-    categoryId: 1,
+    categoryId: 5,
   },
   {
-    name: "капучино",
+    name: "капчино",
     imageUrl:
       "https://cdn.dodostatic.net/static/Img/Banners/2x/cappuccino-1.jpg",
-    categoryId: 1,
+    categoryId: 5,
   },
   {
-    name: "хуй",
+    name: "ткое сбе",
     imageUrl:
       "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
-    categoryId: 5,
+    categoryId: 4,
+  },
+  {
+    name: "таке себе",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
+    categoryId: 4,
+  },
+  {
+    name: "такое се",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
+    categoryId: 4,
+  },
+  {
+    name: "кое себе",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
+    categoryId: 4,
+  },
+  {
+    name: "таое себе",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
+    categoryId: 4,
+  },
+  {
+    name: "тае сбе",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
+    categoryId: 4,
+  },
+  {
+    name: "но",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
+    categoryId: 4,
+  },
+  {
+    name: "орм",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
+    categoryId: 4,
+  },
+  {
+    name: "Мочный",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
+    categoryId: 4,
+  },
+  {
+    name: "беон",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 3,
+  },
+  {
+    name: "беко",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 3,
+  },
+  {
+    name: "бкон",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 3,
+  },
+  {
+    name: "екон",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 3,
+  },
+  {
+    name: "бон",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 3,
+  },
+  {
+    name: "беко",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 3,
   },
   {
     name: "бекон",
     imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
-    categoryId: 4,
+    categoryId: 3,
   },
+  {
+    name: "екон",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 3,
+  },
+
   {
     name: "курица",
     imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/chicken-1.jpg",
@@ -178,6 +298,53 @@ export const products = [
   {
     name: "говядина",
     imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 5,
+  },
+  {
+    name: "говяда",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 5,
+  },
+  {
+    name: "година",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 5,
+  },
+  {
+    name: "говяина",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 5,
+  },
+  {
+    name: "говядина",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 6,
+  },
+  {
+    name: "говяда",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 6,
+  },
+  {
+    name: "гвядина",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 6,
+  },
+  {
+    name: "гоядина",
+    imageUrl: "https://cdn.dodostatic.net/static/Img/Banners/2x/beef-1.jpg",
+    categoryId: 6,
+  },
+  {
+    name: "нор",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
+    categoryId: 5,
+  },
+  {
+    name: "ном",
+    imageUrl:
+      "https://cdn.dodostatic.net/static/Img/Banners/2x/pepperoni-1.jpg",
     categoryId: 5,
   },
 ];

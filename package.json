@@ -15,6 +15,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.8",
     "@prisma/client": "^5.17.0",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -31,6 +32,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.424.0",
     "next": "14.2.5",
+    "next-pwa": "^5.6.0",
     "prisma": "^5.17.0",
     "qs": "^6.13.0",
     "react": "^18",
@@ -44,6 +46,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/next-pwa": "^5.6.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
