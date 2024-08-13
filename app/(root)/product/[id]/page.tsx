@@ -1,6 +1,6 @@
-import { Container, Title } from "@/components/shared";
-import { GroupVariants } from "@/components/shared/GroupVariants";
-import { ProductImage } from "@/components/shared/ProductImage";
+import { Container, Title } from "@/shared/components/shared";
+import { GroupVariants } from "@/shared/components/shared/Variants";
+import { ProductImage } from "@/shared/components/shared/PizzaImage";
 import { prisma } from "@/prisma/prisma-client";
 import { notFound } from "next/navigation";
 

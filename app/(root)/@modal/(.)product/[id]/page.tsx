@@ -1,7 +1,5 @@
-import { Container, Title } from "@/components/shared";
-import { GroupVariants } from "@/components/shared/GroupVariants";
-import { ChooseProductModal } from "@/components/shared/modals/ChooseProductModal";
-import { ProductImage } from "@/components/shared/ProductImage";
+import { Container, Title } from "@/shared/components/shared";
+import { ChooseProductModal } from "@/shared/components/shared/modals/ChooseProductModal";
 import { prisma } from "@/prisma/prisma-client";
 import { notFound } from "next/navigation";
 
