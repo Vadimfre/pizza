@@ -7,6 +7,7 @@ import { CheckboxFiltersGroup } from "./checkbox-filters-group";
 import { useIngredients } from "@/shared/hook/useIngredients";
 import { useFilters } from "@/shared/hook/useFilters";
 import { useQueryFilters } from "@/shared/hook/useQueryFilters";
+import { cn } from "@/shared/lib/utils";
 
 interface Props {
   className?: string;
@@ -29,7 +30,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
   }));
 
   return (
-    <div className={className}>
+    <div className={cn("", className)}>
       <Title text="Фильтрация" size="sm" className="mb-5 font-bold" />
 
       <CheckboxFiltersGroup
