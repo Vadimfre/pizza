@@ -25,22 +25,39 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
   children,
   className,
 }) => {
-  const [totalAmount, fetchCartItems, items] = useCartStore((state) => [
+  const [
+    totalAmount,
+    fetchCartItems,
+    items,
+    updateItemQuantity,
+    removeCartItem,
+  ] = useCartStore((state) => [
     state.totalAmount,
     state.fetchCartItems,
     state.items,
+    state.updateItemQuantity,
+    state.removeCartItem,
   ]);
 
   useEffect(() => {
     fetchCartItems();
   }, []);
+
+  const onClickCountButton = (
+    id: number,
+    quantity: number,
+    type: "plus" | "minus"
+  ) => {
+    const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
+    updateItemQuantity(id, newQuantity);
+  };
   return (
     <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
       <SheetContent className="flex flex-col justify-between pb-0 bg-[#f4f1ee]">
         <SheetHeader>
           <SheetTitle>
-            В корзине <span className="font-cold">3 товара</span>
+            В корзине <span className="font-cold">{items.length} товара</span>
           </SheetTitle>
         </SheetHeader>
 
@@ -63,6 +80,10 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
                 name={item.name}
                 price={item.price}
                 quantity={item.quantity}
+                onClickCountButton={(type) =>
+                  onClickCountButton(item.id, item.quantity, type)
+                }
+                onClickRemove={() => removeCartItem(item.id)}
               />
             ))}
           </div>

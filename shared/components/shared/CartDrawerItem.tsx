@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/shared/lib/utils";
 import { CartItemProps } from "./cart-item-details/cart-item-details.types";
 import { CartItemDetailsImage } from "./cart-item-details/cart-item-details-image";
@@ -6,6 +8,8 @@ import { CountButton } from "./count-button";
 import { CartItemDetailsPrice } from "./cart-item-details/cart-item-details-price";
 import { Trash2Icon } from "lucide-react";
 interface Props extends CartItemProps {
+  onClickRemove?: () => void;
+  onClickCountButton?: (type: "plus" | "minus") => void;
   className?: string;
 }
 
@@ -17,6 +21,8 @@ export const CartDrawerItem: React.FC<Props> = ({
   name,
   price,
   quantity,
+  onClickRemove,
+  onClickCountButton,
 }) => {
   return (
     <div className={cn("flex bg-white p-5 gap-6", className)}>
@@ -27,11 +33,12 @@ export const CartDrawerItem: React.FC<Props> = ({
         <hr className="my-3" />
 
         <div className="flex items-center justify-between">
-          <CountButton onClick={() => {}} value={quantity} />
+          <CountButton onClick={onClickCountButton} value={quantity} />
 
           <div className="flex items-center gap-3">
             <CartItemDetailsPrice value={price} />
             <Trash2Icon
+              onClick={onClickRemove}
               className="text-gray-400 cursor-pointer hover:text-gray-600"
               size={16}
             />
