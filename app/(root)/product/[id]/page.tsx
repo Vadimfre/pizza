@@ -1,15 +1,33 @@
-import { Container, Title } from "@/shared/components/shared";
-import { GroupVariants } from "@/shared/components/shared/Variants";
-import { PizzaImage } from "@/shared/components/shared/PizzaImage";
+import { Container } from "@/shared/components/shared";
 import { prisma } from "@/prisma/prisma-client";
 import { notFound } from "next/navigation";
+import { ChoosePizzaForm } from "@/shared/components/shared/modals/ChoosePizzatForm";
+import { ChooseProductForm } from "@/shared/components/shared/modals/ChooseProductForm";
+import { useCartStore } from "@/shared/store/cart";
+import toast from "react-hot-toast";
+import { ProductForm } from "@/shared/components/shared/ProductForm";
 
 export default async function ProductPage({
   params: { id },
 }: {
   params: { id: string };
 }) {
-  const product = await prisma.product.findFirst({ where: { id: Number(id) } });
+  const product = await prisma.product.findFirst({
+    where: { id: Number(id) },
+    include: {
+      ingredients: true,
+      category: {
+        include: {
+          products: {
+            include: {
+              items: true,
+            },
+          },
+        },
+      },
+      items: true,
+    },
+  });
 
   if (!product) {
     return notFound();
@@ -17,36 +35,7 @@ export default async function ProductPage({
 
   return (
     <Container className="flex flex-col my-10">
-      <div className="flex flex-1">
-        <PizzaImage imageUrl={product.imageUrl} className="" size={40} />
-
-        <div className="w-[490] bg-[#FCFCFC] p-7">
-          <Title
-            text={product.name}
-            size="md"
-            className="font-extrabold mb-1"
-          />
-          <p className="text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-          </p>
-          <GroupVariants
-            items={[
-              {
-                name: "Маленькая",
-                value: "1",
-              },
-              {
-                name: "Средняя",
-                value: "2",
-              },
-              {
-                name: "Большая",
-                value: "3",
-              },
-            ]}
-          />
-        </div>
-      </div>
+      <ProductForm product={product} />
     </Container>
   );
 }
