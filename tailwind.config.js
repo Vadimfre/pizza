@@ -4,7 +4,7 @@ module.exports = {
   content: [
     "./shared/pages/**/*.{ts,tsx}",
     "./shared/components/**/*.{ts,tsx}",
-    "./shared/app/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
     "./shared/src/**/*.{ts,tsx}",
   ],
   prefix: "",

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui";
 import {
   Sheet,
@@ -19,6 +19,7 @@ import { useCartStore } from "@/shared/store/cart";
 import { PizzaSize, PizzaType } from "@/shared/constants/pizza";
 import { Title } from "./title";
 import { cn } from "@/shared/lib/utils";
+import { useCart } from "@/shared/hook/useCart";
 
 interface Props {
   className?: string;
@@ -28,23 +29,8 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
   children,
   className,
 }) => {
-  const [
-    totalAmount,
-    fetchCartItems,
-    items,
-    updateItemQuantity,
-    removeCartItem,
-  ] = useCartStore((state) => [
-    state.totalAmount,
-    state.fetchCartItems,
-    state.items,
-    state.updateItemQuantity,
-    state.removeCartItem,
-  ]);
-
-  useEffect(() => {
-    fetchCartItems();
-  }, []);
+  const { totalAmount, items, updateItemQuantity, removeCartItem } = useCart();
+  const [redirecting, setRedirecting] = useState(false);
 
   const onClickCountButton = (
     id: number,
@@ -103,15 +89,11 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
                       key={item.id}
                       imageUrl={item.imageUrl}
                       disabled={item.disabled}
-                      ditails={
-                        item.pizzaSize
-                          ? getCartItemDetails(
-                              item.ingredients,
-                              item.pizzaType as PizzaType,
-                              item.pizzaSize as PizzaSize
-                            )
-                          : ""
-                      }
+                      ditails={getCartItemDetails(
+                        item.ingredients,
+                        item.pizzaType as PizzaType,
+                        item.pizzaSize as PizzaSize
+                      )}
                       name={item.name}
                       price={item.price}
                       quantity={item.quantity}
@@ -133,8 +115,13 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
                     </span>
                     <span className="font-bold text-lg">{totalAmount}</span>
                   </div>
-                  <Link href="cart">
-                    <Button type="submit" className="w-full h-12 text-base">
+                  <Link href="/checkout">
+                    <Button
+                      loading={redirecting}
+                      onClick={() => setRedirecting(true)}
+                      type="submit"
+                      className="w-full h-12 text-base"
+                    >
                       Оформить заказ
                       <ArrowRight className="w-5 ml-2" />
                     </Button>

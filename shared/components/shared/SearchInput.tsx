@@ -74,7 +74,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
                 onClick={onClickItem}
                 key={product.id}
                 className=" flex gap-3 items-center w-full rounded-sm h-8"
-                href={`/products/${product.id}`}
+                href={`/product/${product.id}`}
               >
                 <img
                   className="rounded-sm h-8"
