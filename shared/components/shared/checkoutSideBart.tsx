@@ -1,14 +1,15 @@
 import { ArrowRight, Package, Percent, Truck } from "lucide-react";
 import { CheckoutItemDetails } from "./checkoutItemDetails";
 import { WhiteBlock } from "./white-block";
-import { Button } from "../ui";
+import { Button, Skeleton } from "../ui";
 import { FC } from "react";
 
 interface Props {
   totalAmount: number;
+  loading?: boolean;
 }
 
-export const CheckoutSideBar: FC<Props> = ({ totalAmount }) => {
+export const CheckoutSideBar: FC<Props> = ({ totalAmount, loading }) => {
   const VAT = 15;
   const DELIVERY_PRICE = 250;
 
@@ -20,7 +21,11 @@ export const CheckoutSideBar: FC<Props> = ({ totalAmount }) => {
     <WhiteBlock className="p-6 sticky top-4">
       <div className="flex flex-col gap-1">
         <span className="text-xl">Итого:</span>
-        <span className=" text-4xl font-extrabold">{`${totalPrice} ₽`}</span>
+        {loading ? (
+          <Skeleton className=" h-11 w-48" />
+        ) : (
+          <span className=" h-11 text-[34px] font-extrabold">{`${totalPrice} ₽`}</span>
+        )}
       </div>
 
       <CheckoutItemDetails
@@ -30,7 +35,13 @@ export const CheckoutSideBar: FC<Props> = ({ totalAmount }) => {
             Стоимость товаров:
           </div>
         }
-        value={`${totalAmount} ₽`}
+        value={
+          loading ? (
+            <Skeleton className="h-6 w-16 rounded-[6px]" />
+          ) : (
+            `${totalAmount} ₽`
+          )
+        }
       />
 
       <CheckoutItemDetails
@@ -40,7 +51,13 @@ export const CheckoutSideBar: FC<Props> = ({ totalAmount }) => {
             Налоги:
           </div>
         }
-        value={`${vatPrice} ₽`}
+        value={
+          loading ? (
+            <Skeleton className="h-6 w-16 rounded-[6px]" />
+          ) : (
+            `${vatPrice} ₽`
+          )
+        }
       />
 
       <CheckoutItemDetails
@@ -50,7 +67,13 @@ export const CheckoutSideBar: FC<Props> = ({ totalAmount }) => {
             Доставка:
           </div>
         }
-        value={`${deliveryPrice} ₽`}
+        value={
+          loading ? (
+            <Skeleton className="h-6 w-16 rounded-[6px]" />
+          ) : (
+            `${deliveryPrice} ₽`
+          )
+        }
       />
       <Button
         type="submit"
