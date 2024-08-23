@@ -7,9 +7,14 @@ import { FC } from "react";
 interface Props {
   totalAmount: number;
   loading?: boolean;
+  subbmitting?: boolean;
 }
 
-export const CheckoutSideBar: FC<Props> = ({ totalAmount, loading }) => {
+export const CheckoutSideBar: FC<Props> = ({
+  totalAmount,
+  loading,
+  subbmitting,
+}) => {
   const VAT = 15;
   const DELIVERY_PRICE = 250;
 
@@ -76,6 +81,7 @@ export const CheckoutSideBar: FC<Props> = ({ totalAmount, loading }) => {
         }
       />
       <Button
+        loading={subbmitting}
         type="submit"
         className="w-full h-14 rounded-2xl mt-6 text-base font-bold"
       >

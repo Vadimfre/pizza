@@ -1,4 +1,5 @@
 "use client";
+import { createOrder } from "@/app/actions";
 import { Container, Title } from "@/shared/components/shared";
 import { CheckoutAdressForm } from "@/shared/components/shared/checkout/checkout-adress-form";
 import { CheckoutCart } from "@/shared/components/shared/checkout/checkout-cart";
@@ -10,9 +11,12 @@ import { CheckoutPersonalInfo } from "@/shared/components/shared/checkout/checko
 import { CheckoutSideBar } from "@/shared/components/shared/checkoutSideBart";
 import { useCart } from "@/shared/hook/useCart";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+import toast from "react-hot-toast";
 
 export default function CheckoutPage() {
+  const [subbmitting, setSubbmitting] = useState(false);
   const { totalAmount, items, loading, updateItemQuantity, removeCartItem } =
     useCart();
   const onClickCountButton = (
@@ -35,13 +39,19 @@ export default function CheckoutPage() {
     },
   });
 
-  const onSubmit = async (data: CheckoutFormValues) => {
+  const onSubmit = async (data: CheckoutFormValues): Promise<void> => {
     try {
-      console.log("onSubmit вызвана!");
-      console.log("data:", data);
-      console.log("typeof data:", typeof data);
+      setSubbmitting(true);
+      const url = await createOrder(data);
+
+      toast.success("Заказ успешно оформлен! Переход на оплату...");
+      if (url) {
+        location.href = url;
+      }
     } catch (error) {
-      console.error("Ошибка в onSubmit:", error);
+      setSubbmitting(false);
+      console.log(error);
+      toast.error("Не удалось создать заказ");
     }
   };
 
@@ -53,12 +63,7 @@ export default function CheckoutPage() {
       />
 
       <FormProvider {...form}>
-        <form
-          onSubmit={form.handleSubmit((data) => {
-            console.log("form.handleSubmit вызвана с данными:", data);
-            onSubmit(data);
-          })}
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="flex gap-10">
             <div className="flex flex-col gap-10 flex-1 mb-20">
               <CheckoutCart
@@ -71,7 +76,10 @@ export default function CheckoutPage() {
               <CheckoutAdressForm disabled={loading} />
             </div>
             <div className="w-[450px]">
-              <CheckoutSideBar totalAmount={totalAmount} loading={loading} />
+              <CheckoutSideBar
+                totalAmount={totalAmount}
+                loading={loading || subbmitting}
+              />
             </div>
           </div>
         </form>

@@ -41,6 +41,7 @@
     "react-hook-form": "^7.52.2",
     "react-hot-toast": "^2.4.1",
     "react-query": "^3.39.3",
+    "resend": "^4.0.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "ts-node": "^10.9.2",

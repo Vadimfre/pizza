@@ -13,7 +13,7 @@ export const CheckoutPersonalInfo: FC<Props> = ({ className, disabled }) => {
       <div className="grid grid-cols-2 gap-5">
         <FormInput
           disabled={disabled}
-          name="name"
+          name="firstName"
           className="text-base"
           placeholder="Имя"
         />
