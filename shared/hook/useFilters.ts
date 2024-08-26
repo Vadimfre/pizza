@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSet } from "react-use";
 import { useMemo, useState } from "react";
