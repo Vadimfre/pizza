@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { Button, Dialog } from "@/shared/components/ui";
 import { DialogContent } from "@/shared/components/ui/dialog";
+import { LoginForm } from "./forms/loginForm";
 
 interface Props {
   open: boolean;
@@ -11,7 +12,7 @@ interface Props {
 }
 
 export const AuthModal: React.FC<Props> = ({ open, onClose }) => {
-  const [type, setType] = React.useState<"login" | "register">("login");
+  const [type, setType] = useState<"login" | "register">("login");
 
   const onSwitchType = () => {
     setType(type === "login" ? "register" : "login");
@@ -25,11 +26,7 @@ export const AuthModal: React.FC<Props> = ({ open, onClose }) => {
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="w-[450px] bg-white p-10">
-        {/* {type === "login" ? (
-          <LoginForm onClose={handleClose} />
-        ) : (
-          <RegisterForm onClose={handleClose} />
-        )} */}
+        {type === "login" ? <LoginForm onClose={handleClose} /> : <></>}
 
         <hr />
 
