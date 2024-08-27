@@ -7,6 +7,7 @@ import { FC } from "react";
 import toast from "react-hot-toast";
 import { ChoosePizzaForm } from "./modals/ChoosePizzatForm";
 import { ChooseProductForm } from "./modals/ChooseProductForm";
+import { readingMessage } from "@/shared/lib/preparingMessage";
 
 interface Props {
   product: ProductWithRelations;
@@ -34,10 +35,14 @@ export const ProductForm: FC<Props> = ({
         ingredients,
       });
       toast.success(product.name + " добавлена в корзину");
-
+      readingMessage("Товар добавлен в корзину", "Приятного аппетита");
       __onSubmit?.();
     } catch (err) {
       toast.error("Не удалось добавить товар в корзину");
+      readingMessage(
+        "Не удалось добавить товар в корзину",
+        "Попробуйте еще раз"
+      );
       console.error(err);
     }
   };

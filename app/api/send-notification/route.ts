@@ -6,10 +6,6 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
   const body = await req.json();
   const { subscription, title, body: messageBody } = body;
 
-  console.log("Received subscription:", subscription);
-  console.log("Received title:", title);
-  console.log("Received body:", messageBody);
-
   if (!subscription || !subscription.endpoint) {
     return NextResponse.json({ success: false, error: "Invalid subscription" });
   }

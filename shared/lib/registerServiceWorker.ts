@@ -1,4 +1,4 @@
-// utils/registerServiceWorker.ts
+// lib/registerServiceWorker.ts
 export function registerServiceWorker() {
   if (typeof window !== "undefined" && "serviceWorker" in navigator) {
     window.addEventListener("load", () => {
