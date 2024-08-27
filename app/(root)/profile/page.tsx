@@ -9,6 +9,7 @@ export default async function ProfilePage() {
   if (!session) {
     return redirect("/not-auth");
   }
+  Notification.requestPermission();
 
   const user = await prisma.user.findFirst({
     where: {

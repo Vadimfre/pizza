@@ -11,6 +11,7 @@ import { AuthModal } from "./modals/auth-modal/auth-modal";
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
+import { registerServiceWorker } from "@/shared/lib/registerServiceWorker";
 
 interface Props {
   hasCart?: boolean;
@@ -35,6 +36,54 @@ const Header: React.FC<Props> = ({
       }, 500);
     }
   }, []);
+  useEffect(() => {
+    Notification.requestPermission().then((permission) => {
+      if (permission === "granted") {
+        registerServiceWorker().then((registration) => {
+          const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
+          const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey!);
+
+          registration.pushManager
+            .subscribe({
+              userVisibleOnly: true,
+              applicationServerKey: convertedVapidKey,
+            })
+            .then((subscription) => {
+              const notificationData = {
+                subscription: subscription,
+                title: "Hello!",
+                body: "You have a new notification.",
+              };
+
+              fetch("/api/send-notification", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(notificationData),
+              }).then((response) => response.json());
+            });
+        });
+      } else {
+        console.error("Notification permission denied");
+      }
+    });
+  }, []);
+
+  function urlBase64ToUint8Array(base64String: string) {
+    const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+    const base64 = (base64String + padding)
+      .replace(/-/g, "+")
+      .replace(/_/g, "/");
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+  }
 
   return (
     <Suspense>

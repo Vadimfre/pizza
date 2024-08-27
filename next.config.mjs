@@ -5,6 +5,10 @@ const withPWA = withPWAInit({
 });
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  api: {
+    bodyParser: true,
+  },
+};
 
 export default withPWA(nextConfig);
