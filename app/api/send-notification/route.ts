@@ -5,7 +5,7 @@ import webpush from "web-push";
 export async function POST(req: NextRequest, res: NextApiResponse) {
   const body = await req.json();
   const { subscription, title, body: messageBody } = body;
-
+  console.log(body, subscription);
   if (!subscription || !subscription.endpoint) {
     return NextResponse.json({ success: false, error: "Invalid subscription" });
   }
