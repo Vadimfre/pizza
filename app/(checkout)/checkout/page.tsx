@@ -64,7 +64,7 @@ export default function CheckoutPage() {
 
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="flex gap-10">
+          <div className="flex gap-10 max-xl:flex-col">
             <div className="flex flex-col gap-10 flex-1 mb-20">
               <CheckoutCart
                 items={items}
@@ -75,7 +75,7 @@ export default function CheckoutPage() {
 
               <CheckoutAdressForm disabled={loading} />
             </div>
-            <div className="w-[450px]">
+            <div className="w-[450px] max-xl:w-full">
               <CheckoutSideBar
                 totalAmount={totalAmount}
                 loading={loading || subbmitting}

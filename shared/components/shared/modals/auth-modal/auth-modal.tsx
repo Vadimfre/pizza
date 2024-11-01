@@ -25,17 +25,8 @@ export const AuthModal: React.FC<Props> = ({ open, onClose }) => {
   };
 
   return (
-    <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="w-[450px] bg-white p-10">
-        {type === "login" ? (
-          <LoginForm onClose={handleClose} />
-        ) : (
-          <>
-            <RegisterForm onClose={handleClose} />
-          </>
-        )}
-
-        <hr />
+    <Dialog  open={open} onOpenChange={handleClose}>
+      <DialogContent className="w-full bg-white p-10">
 
         <div className="flex gap-2">
           <Button
@@ -57,14 +48,6 @@ export const AuthModal: React.FC<Props> = ({ open, onClose }) => {
           </Button>
         </div>
 
-        <Button
-          variant="outline"
-          onClick={onSwitchType}
-          type="button"
-          className="h-12"
-        >
-          {type !== "login" ? "Войти" : "Регистрация"}
-        </Button>
       </DialogContent>
     </Dialog>
   );

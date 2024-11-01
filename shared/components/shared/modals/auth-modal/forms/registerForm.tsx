@@ -31,6 +31,7 @@ export const RegisterForm: React.FC<Props> = ({ onClose, onClickLogin }) => {
         email: data.email,
         fullName: data.fullName,
         password: data.password,
+        verified : Date.now().toString(),
       });
 
       toast.error("Регистрация успешна 📝. Подтвердите свою почту", {

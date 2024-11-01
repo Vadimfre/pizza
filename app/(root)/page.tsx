@@ -20,9 +20,9 @@ export default async function Home({
         )}
       />
       <Container className="mt-10 pb-14">
-        <div className="flex gap-[80px]">
+        <div className="flex gap-[80px] p-5 max-md:gap-[40px] max-sm:flex-col justify-center">
           {/* Фильтрация */}
-          <div className="w-[250px] mx-10">
+          <div className="w-[250px] mx-10 max-sm:w-auto">
             <Suspense>
               <Filters />
             </Suspense>

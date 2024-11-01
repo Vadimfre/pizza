@@ -72,7 +72,7 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
           />
         </div>
       )}
-      <div className="flex flex-col gap-4 max-h-96 overflow-auto pr-2 scrollbar">
+      <div className="flex flex-col gap-4 max-h-96 overflow-auto pr-2 scrollbar-none max-sm:flex-row">
         {list.map((item, index) => (
           <FilterCheckbox
             checked={selected?.has(item.value)}
@@ -86,7 +86,7 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
         ))}
       </div>
       {items.length > limit && (
-        <div className={showAll ? "border-t border-t-neutral-100 mt-4" : ""}>
+        <div className={showAll ? "border-t border-t-neutral-100 mt-4" : "max-sm:text-center"}>
           <button
             onClick={() => setShowAll(!showAll)}
             className="text-primary mt-3"

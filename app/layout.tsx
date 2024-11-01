@@ -1,6 +1,7 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/shared/components/providers";
+
 const nunito = Nunito({
   subsets: ["cyrillic"],
   variable: "--font-nunito",
@@ -16,10 +17,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="/logo.png" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
-      <link rel="manifest" href="/manifest.json" />
       <body className={nunito.className}>
-        <Providers> {children}</Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
