@@ -3,11 +3,10 @@
 import { cn } from "@/shared/lib/utils";
 import { Search } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { useClickAway, useDebounce } from "react-use";
 import { Api } from "@/shared/services/api-client";
 import { Product } from "@prisma/client";
-import { useQuery } from "react-query";
 
 interface Props {
   className?: string;
@@ -30,7 +29,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
         setProducts(response);
       } catch (error) {
         console.log(error);
-      }
+      } 
     },
     250,
     [searchQuery]

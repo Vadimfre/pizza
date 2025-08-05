@@ -7,7 +7,6 @@ import { cookies } from "next/headers";
 import { sendEmail } from "@/shared/lib/sendEmail";
 import { getUserSession } from "@/shared/lib/GetUserSession";
 import { hashSync } from "bcrypt";
-import { PayOrderTemplate } from "@/shared/components/shared/email-templates/pay-order";
 import { VerificationUserTemplate } from "@/shared/components/shared/email-templates/verification-user";
 
 export async function createOrder(data: CheckoutFormValues) {
