@@ -1,0 +1,1 @@
+self.addEventListener("push",i=>{var n;let t=(null===(n=i.data)||void 0===n?void 0:n.json())||{},o=t.title||"New Notification",e={body:t.body||"You have a new message.",icon:"/icons/icon-512x512.png"};i.waitUntil(self.registration.showNotification(o,e))}),self.addEventListener("notificationclick",i=>{i.notification.close(),i.waitUntil(clients.openWindow("/"))});
